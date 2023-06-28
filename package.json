@@ -7,9 +7,11 @@
     "build": "next build",
     "preview": "next build && next start",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint && prettier --write ."
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.15",
+    "@heroicons/react": "^2.0.18",
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "18.16.1",
     "@types/react": "18.2.0",
