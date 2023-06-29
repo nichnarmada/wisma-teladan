@@ -102,10 +102,11 @@ export const Footer = () => {
               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
               alt="Company name"
             />
-            <p className="text-sm leading-6 text-gray-600">
+            {/* Company description */}
+            {/* <p className="text-sm leading-6 text-gray-600">
               Making the world a better place through constructing elegant
               hierarchies.
-            </p>
+            </p> */}
             <div className="flex space-x-6">
               {navigation.social.map((item) => (
                 <a
@@ -196,7 +197,7 @@ export const Footer = () => {
         </div>
         <div className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24">
           <p className="text-xs leading-5 text-gray-500">
-            &copy; 2020 Your Company, Inc. All rights reserved.
+            &copy; 2023 Wisma Teladan. All rights reserved.
           </p>
         </div>
       </div>
