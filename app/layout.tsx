@@ -32,7 +32,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body
-        className={`min-h-screen bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-50 ${inter.className}`}
+        className={`bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-50 ${inter.className}`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <header>
@@ -41,9 +41,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 <ModeToggle />
               </div> */}
           </header>
-          <div className="mx-auto max-w-2xl px-4 py-10">
-            <main>{children}</main>
-          </div>
+          <main>{children}</main>
+          {/* <div className="mx-auto max-w-2xl px-4 py-10">
+          </div> */}
           <Analytics />
         </ThemeProvider>
       </body>
