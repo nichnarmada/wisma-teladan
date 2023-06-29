@@ -7,10 +7,6 @@ import Link from "next/link"
 import { tabDetail } from "@/app/layout"
 import { usePathname } from "next/navigation"
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ")
-}
-
 interface HeaderProps {
   tabs: tabDetail[]
 }
