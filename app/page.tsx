@@ -1,4 +1,3 @@
-import { allPosts } from "@/.contentlayer/generated"
 import Link from "next/link"
 import {
   ArrowPathIcon,
@@ -8,11 +7,6 @@ import {
   LockClosedIcon,
   ServerIcon,
 } from "@heroicons/react/20/solid"
-import {
-  BoltIcon,
-  CalendarDaysIcon,
-  UsersIcon,
-} from "@heroicons/react/24/outline"
 import { CompanyLogos } from "@/components/layout/companyLogos"
 
 const primaryFeatures = [
@@ -21,21 +15,24 @@ const primaryFeatures = [
     description:
       "Non quo aperiam repellendus quas est est. Eos aut dolore aut ut sit nesciunt. Ex tempora quia. Sit nobis consequatur dolores incidunt.",
     href: "#",
-    icon: BoltIcon,
+    imageUrl:
+      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
   },
   {
     name: "Collaborate",
     description:
       "Vero eum voluptatem aliquid nostrum voluptatem. Vitae esse natus. Earum nihil deserunt eos quasi cupiditate. A inventore et molestiae natus.",
     href: "#",
-    icon: UsersIcon,
+    imageUrl:
+      "https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80",
   },
   {
     name: "Task scheduling",
     description:
       "Et quod quaerat dolorem quaerat architecto aliquam accusantium. Ex adipisci et doloremque autem quia quam. Quis eos molestiae at iure impedit.",
     href: "#",
-    icon: CalendarDaysIcon,
+    imageUrl:
+      "https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80",
   },
 ]
 const secondaryFeatures = [
@@ -172,16 +169,16 @@ export default function Home() {
             </p>
             <div className="mt-10 flex items-center gap-x-6">
               <Link
-                href="#"
+                href="/about"
                 className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
               >
-                Get started
+                Tentang Kami
               </Link>
               <Link
-                href="#"
-                className="text-sm font-semibold leading-6 text-gray-900"
+                href="/service"
+                className="text-sm font-semibold leading-6 text-gray-900 hover:text-gray-700"
               >
-                Live demo <span aria-hidden="true">→</span>
+                Pelayanan <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
@@ -251,11 +248,13 @@ export default function Home() {
                   // dark:text-white
                   className="text-base font-semibold leading-7 text-gray-900 "
                 >
-                  <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-500">
-                    <feature.icon
-                      className="h-6 w-6 text-white"
-                      aria-hidden="true"
+                  <div className="relative w-full">
+                    <img
+                      src={feature.imageUrl}
+                      alt=""
+                      className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
                     />
+                    <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
                   </div>
                   {feature.name}
                 </dt>
@@ -268,7 +267,7 @@ export default function Home() {
                     <a
                       href={feature.href}
                       // dark:text-indigo-400
-                      className="text-sm font-semibold leading-6 text-indigo-600"
+                      className="text-sm font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
                     >
                       Learn more <span aria-hidden="true">→</span>
                     </a>
