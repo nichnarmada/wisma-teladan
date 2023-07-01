@@ -37,9 +37,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <header>
             <Header tabs={tabList} />
-            {/* <div className="flex items-center justify-between">
-                <ModeToggle />
-              </div> */}
           </header>
           <main>{children}</main>
           {/* <div className="mx-auto max-w-2xl px-4 py-10">
