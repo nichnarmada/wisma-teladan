@@ -1,17 +1,98 @@
 import { allPosts } from "@/.contentlayer/generated"
 import Link from "next/link"
 
-export default function Experience() {
+const categories = [
+  {
+    name: "Handcrafted Collection",
+    href: "#",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/home-page-01-collection-01.jpg",
+    imageAlt:
+      "Brown leather key ring with brass metal loops and rivets on wood table.",
+    description:
+      "Keep your phone, keys, and wallet together, so you can lose everything at once.",
+  },
+  {
+    name: "Organized Desk Collection",
+    href: "#",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/home-page-01-collection-02.jpg",
+    imageAlt:
+      "Natural leather mouse pad on white desk next to porcelain mug and keyboard.",
+    description:
+      "The rest of the house will still be a mess, but your desk will look great.",
+  },
+  {
+    name: "Focus Collection",
+    href: "#",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/home-page-01-collection-03.jpg",
+    imageAlt:
+      "Person placing task list card into walnut card holder next to felt carrying case on leather desk pad.",
+    description:
+      "Be more productive than enterprise project managers with a single piece of paper.",
+  },
+]
+
+export default function Service() {
+  console.log("allPosts", allPosts)
+
   return (
-    <div className="prose dark:prose-invert">
-      {allPosts.map((post) => (
-        <article key={post._id}>
-          <Link href={post.slug}>
-            <h2>{post.title}</h2>
-          </Link>
-          {post.description && <p>{post.description}</p>}
-        </article>
-      ))}
+    <div className="bg-white">
+      <div className="mx-auto max-w-xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+          Pelayanan
+        </h2>
+        <p className="mt-4 text-base text-gray-500">
+          Each season, we collaborate with world-class designers to create a
+          collection inspired by the natural world.
+        </p>
+
+        <div className="mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
+          {allPosts.map((post) => (
+            <article key={post._id}>
+              <Link href={post.slug} className="group block">
+                <div
+                  aria-hidden="true"
+                  className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg lg:aspect-h-6 lg:aspect-w-5 group-hover:opacity-75"
+                >
+                  {/* <img
+                    src={category.imageSrc}
+                    alt={category.imageAlt}
+                    className="h-full w-full object-cover object-center"
+                  /> */}
+                </div>
+                <h3 className="mt-4 text-base font-semibold text-gray-900">
+                  {post.title}
+                </h3>
+                {/* {post.description && (
+                  <p className="mt-2 text-sm text-gray-500">
+                    {post.description}
+                  </p>
+                )} */}
+              </Link>
+            </article>
+          ))}
+          <article>
+            <Link href="/service/rental" className="group block">
+              <div
+                aria-hidden="true"
+                className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg lg:aspect-h-6 lg:aspect-w-5 group-hover:opacity-75"
+              >
+                {/* <img
+                    src={category.imageSrc}
+                    alt={category.imageAlt}
+                    className="h-full w-full object-cover object-center"
+                  /> */}
+              </div>
+              <h3 className="mt-4 text-base font-semibold text-gray-900">
+                Menyewakan Alat Berat
+              </h3>
+              {/* <p className="mt-2 text-sm text-gray-500">List alat berat kami menyewakan</p> */}
+            </Link>
+          </article>
+        </div>
+      </div>
     </div>
   )
 }
