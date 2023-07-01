@@ -13,6 +13,7 @@ import {
   CalendarDaysIcon,
   UsersIcon,
 } from "@heroicons/react/24/outline"
+import { CompanyLogos } from "@/components/layout/companyLogos"
 
 const primaryFeatures = [
   {
@@ -97,11 +98,15 @@ const blogPosts = [
 
 export default function Home() {
   return (
-    <div className="bg-gray-900">
+    <div
+      // dark:bg-gray-900
+      className="bg-white"
+    >
       {/* Hero section */}
       <div className="relative isolate overflow-hidden">
         <svg
-          className="absolute inset-0 -z-10 h-full w-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+          // dark:stroke-white/10
+          className="absolute inset-0 -z-10 h-full w-full  stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
           aria-hidden="true"
         >
           <defs>
@@ -116,7 +121,12 @@ export default function Home() {
               <path d="M.5 200V.5H200" fill="none" />
             </pattern>
           </defs>
-          <svg x="50%" y={-1} className="overflow-visible fill-gray-800/20">
+          <svg
+            x="50%"
+            y={-1}
+            // dark:fill-gray-800/20
+            className="overflow-visible fill-gray-50 "
+          >
             <path
               d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
               strokeWidth={0}
@@ -148,12 +158,32 @@ export default function Home() {
               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
               alt="Your Company"
             />
-            <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">
+            <h1
+              // dark:text-white
+              className="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+            >
               Soil Stabilization & Road Recycling
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-300">
+            <p
+              // dark:text-gray-300
+              className="mt-6 text-lg leading-8 text-gray-600 "
+            >
               Bekerja Mengutamakan Kualitas
             </p>
+            <div className="mt-10 flex items-center gap-x-6">
+              <Link
+                href="#"
+                className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+              >
+                Get started
+              </Link>
+              <Link
+                href="#"
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
+                Live demo <span aria-hidden="true">→</span>
+              </Link>
+            </div>
           </div>
           <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
             <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
@@ -171,58 +201,44 @@ export default function Home() {
 
       {/* Logo cloud */}
       <div className="mx-auto mt-8 max-w-7xl px-6 sm:mt-16 lg:px-8">
-        <h2 className="text-center text-lg font-semibold leading-8 text-white">
-          The world’s most innovative companies use our app
+        <h2
+          // dark:text-white
+          className="text-center text-3xl font-semibold leading-8 text-gray-900 "
+        >
+          Selamat Datang di Website PT. Wisma Teladan
         </h2>
+        <p
+          // dark:text-white
+          className="mt-6 text-center text-lg leading-8 text-gray-600 "
+        >
+          Kami sudah berpengalaman lebih dari 20 tahun sejak tahun 1977 khusus
+          melakukan pekerjaan stabilisasi jalan dengan dukungan peralatan yang
+          lengkap
+        </p>
         <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-          <img
-            className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-            src="https://tailwindui.com/img/logos/158x48/transistor-logo-white.svg"
-            alt="Transistor"
-            width={158}
-            height={48}
-          />
-          <img
-            className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-            src="https://tailwindui.com/img/logos/158x48/reform-logo-white.svg"
-            alt="Reform"
-            width={158}
-            height={48}
-          />
-          <img
-            className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-            src="https://tailwindui.com/img/logos/158x48/tuple-logo-white.svg"
-            alt="Tuple"
-            width={158}
-            height={48}
-          />
-          <img
-            className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
-            src="https://tailwindui.com/img/logos/158x48/savvycal-logo-white.svg"
-            alt="SavvyCal"
-            width={158}
-            height={48}
-          />
-          <img
-            className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-            src="https://tailwindui.com/img/logos/158x48/statamic-logo-white.svg"
-            alt="Statamic"
-            width={158}
-            height={48}
-          />
+          <CompanyLogos />
         </div>
       </div>
 
       {/* Feature section */}
       <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-56 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-400">
+          <h2
+            // dark:text-indigo-400
+            className="text-base font-semibold leading-7 text-indigo-600 "
+          >
             Services
           </h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <p
+            // dark:text-white
+            className="mt-2 text-3xl font-bold tracking-tight text-gray-900  sm:text-4xl"
+          >
             Services we offer
           </p>
-          <p className="mt-6 text-lg leading-8 text-gray-300">
+          <p
+            // dark:text-gray-300
+            className="mt-6 text-lg leading-8 text-gray-600"
+          >
             Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam
             voluptatum cupiditate veritatis in accusamus quisquam.
           </p>
@@ -231,7 +247,10 @@ export default function Home() {
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
             {primaryFeatures.map((feature) => (
               <div key={feature.name} className="flex flex-col">
-                <dt className="text-base font-semibold leading-7 text-white">
+                <dt
+                  // dark:text-white
+                  className="text-base font-semibold leading-7 text-gray-900 "
+                >
                   <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-500">
                     <feature.icon
                       className="h-6 w-6 text-white"
@@ -240,12 +259,16 @@ export default function Home() {
                   </div>
                   {feature.name}
                 </dt>
-                <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-300">
+                <dd
+                  // dark:text-gray-300
+                  className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600 "
+                >
                   <p className="flex-auto">{feature.description}</p>
                   <p className="mt-6">
                     <a
                       href={feature.href}
-                      className="text-sm font-semibold leading-6 text-indigo-400"
+                      // dark:text-indigo-400
+                      className="text-sm font-semibold leading-6 text-indigo-600"
                     >
                       Learn more <span aria-hidden="true">→</span>
                     </a>
@@ -258,7 +281,7 @@ export default function Home() {
       </div>
 
       {/* Feature section */}
-      <div className="mt-32 sm:mt-56">
+      {/* <div className="mt-32 sm:mt-56">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl sm:text-center">
             <h2 className="text-base font-semibold leading-7 text-indigo-400">
@@ -304,15 +327,21 @@ export default function Home() {
             ))}
           </dl>
         </div>
-      </div>
+      </div> */}
 
       {/* Blog section */}
       <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2
+            // dark:text-white
+            className="text-3xl font-bold tracking-tight text-gray-900  sm:text-4xl"
+          >
             From the blog
           </h2>
-          <p className="mt-2 text-lg leading-8 text-gray-600">
+          <p
+            // dark:text-white
+            className="mt-2 text-lg leading-8 text-gray-600 "
+          >
             Vel dolorem qui facilis soluta sint aspernatur totam cumque.
           </p>
         </div>
