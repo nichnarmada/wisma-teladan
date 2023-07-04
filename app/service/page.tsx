@@ -1,42 +1,7 @@
 import { allPosts } from "@/.contentlayer/generated"
 import Link from "next/link"
 
-const categories = [
-  {
-    name: "Handcrafted Collection",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-01-collection-01.jpg",
-    imageAlt:
-      "Brown leather key ring with brass metal loops and rivets on wood table.",
-    description:
-      "Keep your phone, keys, and wallet together, so you can lose everything at once.",
-  },
-  {
-    name: "Organized Desk Collection",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-01-collection-02.jpg",
-    imageAlt:
-      "Natural leather mouse pad on white desk next to porcelain mug and keyboard.",
-    description:
-      "The rest of the house will still be a mess, but your desk will look great.",
-  },
-  {
-    name: "Focus Collection",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-01-collection-03.jpg",
-    imageAlt:
-      "Person placing task list card into walnut card holder next to felt carrying case on leather desk pad.",
-    description:
-      "Be more productive than enterprise project managers with a single piece of paper.",
-  },
-]
-
 export default function Service() {
-  console.log("allPosts", allPosts)
-
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
@@ -48,48 +13,45 @@ export default function Service() {
           collection inspired by the natural world.
         </p>
 
-        <div className="mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
+        <div className="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {allPosts.map((post) => (
-            <article key={post._id}>
-              <Link href={post.slug} className="group block">
-                <div
-                  aria-hidden="true"
-                  className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg lg:aspect-h-6 lg:aspect-w-5 group-hover:opacity-75"
-                >
-                  {/* <img
-                    src={category.imageSrc}
-                    alt={category.imageAlt}
-                    className="h-full w-full object-cover object-center"
-                  /> */}
-                </div>
-                <h3 className="mt-4 text-base font-semibold text-gray-900">
+            <article
+              key={post._id}
+              className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
+            >
+              {post.cover && (
+                <img
+                  src={post.cover}
+                  alt=""
+                  className="absolute inset-0 -z-10 h-full w-full object-cover"
+                />
+              )}
+              <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
+              <div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+
+              <h3 className="mt-3 text-lg font-semibold leading-6 text-white">
+                <Link href={post.slug}>
+                  <span className="absolute inset-0" />
                   {post.title}
-                </h3>
-                {/* {post.description && (
-                  <p className="mt-2 text-sm text-gray-500">
-                    {post.description}
-                  </p>
-                )} */}
-              </Link>
+                </Link>
+              </h3>
             </article>
           ))}
-          <article>
-            <Link href="/service/rental" className="group block">
-              <div
-                aria-hidden="true"
-                className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg lg:aspect-h-6 lg:aspect-w-5 group-hover:opacity-75"
-              >
-                {/* <img
-                    src={category.imageSrc}
-                    alt={category.imageAlt}
-                    className="h-full w-full object-cover object-center"
-                  /> */}
-              </div>
-              <h3 className="mt-4 text-base font-semibold text-gray-900">
+          <article className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80">
+            <img
+              src="https://images.unsplash.com/photo-1597399069243-e782acdca4d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+              alt=""
+              className="absolute inset-0 -z-10 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
+            <div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+
+            <h3 className="mt-3 text-lg font-semibold leading-6 text-white">
+              <Link href="/service/rental">
+                <span className="absolute inset-0" />
                 Menyewakan Alat Berat
-              </h3>
-              {/* <p className="mt-2 text-sm text-gray-500">List alat berat kami menyewakan</p> */}
-            </Link>
+              </Link>
+            </h3>
           </article>
         </div>
       </div>
