@@ -248,7 +248,7 @@ export default function Home() {
                   // dark:text-white
                   className="text-base font-semibold leading-7 text-gray-900 "
                 >
-                  <div className="relative w-full">
+                  <div className="relative mb-4 w-full">
                     <img
                       src={feature.imageUrl}
                       alt=""
