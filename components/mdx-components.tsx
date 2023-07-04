@@ -1,8 +1,8 @@
-import Image from "next/image"
+import { BlogImage } from "@/components/blog-image"
 import { useMDXComponent } from "next-contentlayer/hooks"
 
 const components = {
-  Image,
+  BlogImage,
 }
 
 interface MdxProps {
