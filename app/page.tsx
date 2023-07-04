@@ -8,33 +8,8 @@ import {
   ServerIcon,
 } from "@heroicons/react/20/solid"
 import { CompanyLogos } from "@/components/layout/companyLogos"
+import { allPosts } from "@/.contentlayer/generated"
 
-const primaryFeatures = [
-  {
-    name: "Server monitoring",
-    description:
-      "Non quo aperiam repellendus quas est est. Eos aut dolore aut ut sit nesciunt. Ex tempora quia. Sit nobis consequatur dolores incidunt.",
-    href: "#",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-  },
-  {
-    name: "Collaborate",
-    description:
-      "Vero eum voluptatem aliquid nostrum voluptatem. Vitae esse natus. Earum nihil deserunt eos quasi cupiditate. A inventore et molestiae natus.",
-    href: "#",
-    imageUrl:
-      "https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80",
-  },
-  {
-    name: "Task scheduling",
-    description:
-      "Et quod quaerat dolorem quaerat architecto aliquam accusantium. Ex adipisci et doloremque autem quia quam. Quis eos molestiae at iure impedit.",
-    href: "#",
-    imageUrl:
-      "https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80",
-  },
-]
 const secondaryFeatures = [
   {
     name: "Push to deploy.",
@@ -217,7 +192,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Feature section */}
+      {/* Services section */}
       <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-56 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2
@@ -242,39 +217,70 @@ export default function Home() {
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-            {primaryFeatures.map((feature) => (
-              <div key={feature.name} className="flex flex-col">
+            {allPosts.map((service) => (
+              <div key={service._id} className="flex flex-col">
                 <dt
                   // dark:text-white
                   className="text-base font-semibold leading-7 text-gray-900 "
                 >
                   <div className="relative mb-4 w-full">
                     <img
-                      src={feature.imageUrl}
+                      src={service.cover}
                       alt=""
                       className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
                     />
                     <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
                   </div>
-                  {feature.name}
+                  {service.title}
                 </dt>
                 <dd
                   // dark:text-gray-300
                   className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600 "
                 >
-                  <p className="flex-auto">{feature.description}</p>
+                  <p className="flex-auto">{service.description}</p>
                   <p className="mt-6">
-                    <a
-                      href={feature.href}
+                    <Link
+                      href={service.slug}
                       // dark:text-indigo-400
                       className="text-sm font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
                     >
                       Learn more <span aria-hidden="true">→</span>
-                    </a>
+                    </Link>
                   </p>
                 </dd>
               </div>
             ))}
+            <div className="flex flex-col">
+              <dt
+                // dark:text-white
+                className="text-base font-semibold leading-7 text-gray-900 "
+              >
+                <div className="relative mb-4 w-full">
+                  <img
+                    src="https://images.unsplash.com/photo-1597399069243-e782acdca4d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                    alt=""
+                    className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+                  />
+                  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+                </div>
+                Menyewakan Alat Berat
+              </dt>
+              <dd
+                // dark:text-gray-300
+                className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600 "
+              >
+                <p className="flex-auto">Heavy Equipment for rent</p>
+                <p className="mt-6">
+                  <Link
+                    href="/service/rental"
+                    // dark:text-indigo-400
+                    className="text-sm font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+                  >
+                    Learn more <span aria-hidden="true">→</span>
+                  </Link>
+                </p>
+              </dd>
+            </div>
           </dl>
         </div>
       </div>
