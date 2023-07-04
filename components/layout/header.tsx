@@ -13,6 +13,7 @@ interface HeaderProps {
 
 export const Header = ({ tabs }: HeaderProps) => {
   const pathname = usePathname()
+  const mainPath = "/" + (pathname.split("/")[1] ?? "")
 
   return (
     <Disclosure as="nav" className="bg-white shadow">
@@ -49,7 +50,7 @@ export const Header = ({ tabs }: HeaderProps) => {
                   {tabs.map((tab) => (
                     <Link
                       className={
-                        pathname === tab.href
+                        mainPath === tab.href
                           ? "inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900"
                           : "inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
                       }
